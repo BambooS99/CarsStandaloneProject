@@ -1,0 +1,10 @@
+<h1>Here are the available Cars</h1>
+
+<div *ngFor="let car of cars">
+  <h3>Information about {{ car.make }} {{ car.model }}</h3>
+  <h3>Year: {{ car.year }}</h3>
+  <h3>Miles: {{ car.miles }}</h3>
+  <h3>Price: ${{ car.price }}</h3>
+
+  <button a ref=>Contact us now!</button>
+</div>
