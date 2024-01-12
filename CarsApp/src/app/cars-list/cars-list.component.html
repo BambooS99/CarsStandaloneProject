@@ -1,10 +1,23 @@
-<h1>Here are the available Cars</h1>
+<h1 class = "title-heading">Here are the available Cars</h1>
+<br>
+<div class = "card-container">
+  <div *ngFor="let car of cars" class="card">
+    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" class="card-img-top" alt="Fissure in Sandstone"/>
+    <div class="card-body">
+      
+      <h5 class="card-title">{{ car.make }} {{ car.model }}</h5>
+      <p class="card-text">
+        <h3>Year: {{ car.year }}</h3>
+        <h3>Miles: {{ car.miles }}</h3>
+        <h3>Price: ${{ car.price }}</h3>
+  
+      
+      <a href="#!" class="btn btn-primary">Purchase</a>
+    </div>
+    </div>
 
-<div *ngFor="let car of cars">
-  <h3>Information about {{ car.make }} {{ car.model }}</h3>
-  <h3>Year: {{ car.year }}</h3>
-  <h3>Miles: {{ car.miles }}</h3>
-  <h3>Price: ${{ car.price }}</h3>
-
-  <button a ref=>Contact us now!</button>
 </div>
+
+
+  
+

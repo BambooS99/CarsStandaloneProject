@@ -39,6 +39,20 @@ export class CarsListComponent implements OnInit {
       miles: 80000,
       price: 12200,
     },
+    {
+      make: 'BMW',
+      model: 'Z4',
+      year: 2024,
+      miles: 0,
+      price: 51000,
+    },
+    {
+      make: 'Nissan',
+      model: 'Skyline',
+      year: 1998,
+      miles: 23000,
+      price: 120000,
+    },
   ];
 
   constructor() {}
