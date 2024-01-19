@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 export interface UserData {
   Balance: number;
 }
+let x = 5;
 
 @Component({
   standalone: true,
@@ -11,6 +12,8 @@ export interface UserData {
   styleUrls: ['./user-data.component.scss'],
   imports: [CommonModule, NgFor],
 })
+
+
 export class UserDataComponent implements OnInit {
   userInfos: UserData[]=[{
     Balance: 15000
