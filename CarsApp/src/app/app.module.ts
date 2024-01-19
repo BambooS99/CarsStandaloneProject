@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CarsListComponent } from './cars-list/cars-list.component';
 import { SoldCarsComponent } from './sold-cars/sold-cars.component';
+import { UserDataComponent } from './user-data/user-data.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,6 +14,7 @@ import { SoldCarsComponent } from './sold-cars/sold-cars.component';
     AppRoutingModule,
     CarsListComponent,
     SoldCarsComponent,
+    UserDataComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
