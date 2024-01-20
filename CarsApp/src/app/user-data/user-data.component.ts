@@ -1,9 +1,9 @@
 import { CommonModule, NgFor } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, WritableSignal, signal } from '@angular/core';
 export interface UserData {
-  Balance: number;
+  Balance: WritableSignal<number>;
 }
-let x = 5;
+
 
 @Component({
   standalone: true,
@@ -15,10 +15,10 @@ let x = 5;
 
 
 export class UserDataComponent implements OnInit {
+  
   userInfos: UserData[]=[{
-    Balance: 15000
+    Balance: signal(20000) //line with error
   }]
-   
   
   constructor() { }
 

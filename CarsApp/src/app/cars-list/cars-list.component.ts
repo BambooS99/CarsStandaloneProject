@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
 import { UserDataComponent } from '../user-data/user-data.component';
 
+
 export interface Car {
   make: string;
   model: string;
@@ -27,7 +28,9 @@ export class CarsListComponent extends UserDataComponent {
   purchaseFunction(): void {
     const userInfos = this.getUserInfos();
     if (userInfos.length > 0) {
-      const balance = userInfos[0].Balance - this.cars[0].price;
+      // const balance = Number(userInfos[0].Balance)- this.cars[0].price;
+      
+      
       // Perform purchase operation and subtract from balance
       // Example: balance -= purchaseAmount;
     }
