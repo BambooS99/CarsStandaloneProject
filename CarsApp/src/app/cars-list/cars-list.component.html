@@ -1,6 +1,8 @@
 <h1 class = "title-heading">Here are the available Cars</h1>
+<div class="userInfoSection">
+  <h3>Your Balance is: {{Balance()}}</h3>
+</div>
 
-<app-user-data></app-user-data>
 
 <br>
 <div class = "card-container">
@@ -17,7 +19,7 @@
       </div>
       
     </div>
-    <a href="" class="btn btn-primary">Purchase</a>
+    <button (click)="purchase()">Purchase</button>
     </div>
 
 </div>

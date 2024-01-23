@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, WritableSignal, signal} from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
-import { UserDataComponent } from '../user-data/user-data.component';
+
 
 
 export interface Car {
@@ -21,21 +21,20 @@ export interface Car {
   selector: 'app-cars-list',
   templateUrl: './cars-list.component.html',
   styleUrls: ['./cars-list.component.scss'],
-  imports: [CommonModule, NgFor, UserDataComponent],
+  imports: [CommonModule, NgFor],
 })
-export class CarsListComponent extends UserDataComponent {
 
-  purchaseFunction(): void {
-    const userInfos = this.getUserInfos();
-    if (userInfos.length > 0) {
-      // const balance = Number(userInfos[0].Balance)- this.cars[0].price;
-      
-      
-      // Perform purchase operation and subtract from balance
-      // Example: balance -= purchaseAmount;
-    }
+
+export class CarsListComponent {
+  
+
+    Balance= signal(20000);
+
+  
+  purchase() {
+   this.Balance.set(this.Balance() - 5)
   }
-
+ 
 
   cars: Car[] = [
     {
