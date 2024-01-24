@@ -26,17 +26,33 @@ export interface Car {
 
 
 export class CarsListComponent {
-  
+  Balance: WritableSignal<number> = signal(20000);
 
-    Balance= signal(20000);
+  currentCar: Car | null = null;
 
-  
-  purchase() {
-   this.Balance.set(this.Balance() - 5)
+  purchase(selectedCar: Car) {
+    if (this.Balance() > selectedCar.price) {
+      // Update the Balance using signal-based operations
+      this.Balance.set(this.Balance() - selectedCar.price);
+
+      // Find the index of the selected car in the cars array using signals
+      const index = this.cars().findIndex((car) => car === selectedCar);
+
+      if (index !== -1) {
+        // Update the cars array using signal-based operations
+        this.cars.update((currentCars) => {
+          const updatedCars = [...currentCars];
+          updatedCars.splice(index, 1);
+          return updatedCars;
+        });
+      }
+    } else {
+      alert("You don't have enough money for this");
+    }
   }
  
 
-  cars: Car[] = [
+  cars: WritableSignal<Car[]> = signal([
     {
       make: 'Honda',
       model: 'Civic Type-R',
@@ -52,7 +68,6 @@ export class CarsListComponent {
       miles: 120000,
       price: 12000,
       image: 'https://www.motortrend.com/uploads/sites/5/2010/03/2010-toyota-camry-le-front-three-quarters-driver-2.jpg?fit=around%7C875:492'
-
     },
     {
       make: 'Mazda',
@@ -85,7 +100,6 @@ export class CarsListComponent {
       miles: 87000,
       price: 4000,
       image: 'https://images.drive.com.au/driveau/image/upload/c_fill,f_auto,g_auto,h_1080,q_auto:eco,w_1920/v1/cms/uploads/7YNwbJdzQyCbVNzlcRA3'
-
     },
     {
       make: 'Lexus',
@@ -94,9 +108,9 @@ export class CarsListComponent {
       miles: 63000,
       price: 16000,
       image: 'https://file.kelleybluebookimages.com/kbb/base/house/1998/1998-Lexus-LS-FrontSide_LELS4981_505x375.jpg?interpolation=high-quality&downsize=303:*'
-
     }
-  ];
+  ]);
+  
 
   
 }
